@@ -1,0 +1,50 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace lab_2_2
+{
+    delegate int MyDelegat(int a, int b);
+    class Program
+    {
+        
+        static void Main()
+        {
+            Console.WriteLine("Select an option: +, - , * , / ");
+            string option = Console.ReadLine();
+            Console.WriteLine("Write the first number");
+            int x = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Write the second number ");
+            int y = Convert.ToInt32(Console.ReadLine());
+
+            switch(option)
+            {
+                case "+": MyDelegat myDelegat = (c, b) =>  c + b;
+                    int del = myDelegat(x, y);
+                    Console.WriteLine("Answear: {0}", del);
+                    break;
+                case "-":
+                    MyDelegat myDelegat1 = (c, b) =>  c - b;
+                    int del1 = myDelegat1(x, y);
+                    Console.WriteLine("Answear: {0}", del1);
+                    break;
+                case "*":
+                    MyDelegat myDelegat2 = (c, b) => c * b;
+                    int del2 = myDelegat2(x, y);
+                    Console.WriteLine("Answear: {0}", del2);
+                    break;
+                case "/":
+                    MyDelegat myDelegat3 = (c, b) =>b == 0 ? 0 : c / b;
+                    int del3 = myDelegat3(x, y);
+                    Console.WriteLine("Answear: {0}", del3);
+                    break;
+                default: Console.WriteLine("Chose please");
+                    break;
+            }
+            Console.ReadKey();
+          
+        }
+    }
+}
